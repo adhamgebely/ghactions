@@ -1,0 +1,16 @@
+name:  First Workflow 
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  example-job:
+    runs-on: ubuntu-lates
+    
+    steps:
+      - name: print a welcome message 
+        run: echo" Welcome our First Github Actins Workflow "
+  
+      
