@@ -1,0 +1,24 @@
+name: Condition Test Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Step 1 - Fail intentionally
+        run: exit 1
+
+      - name: Run only on success
+        if: success()
+        run: echo "Previous steps succeeded"
+
+      - name: Run only on failure
+        if: failure()
+        run: echo "A previous step failed"
+
+      - name: Run always
+        if: always()
+        run: echo "This always runs"
